@@ -14,8 +14,7 @@ class QueryBuilderAsset extends AssetBundle {
     public $sourcePath = '@bower/jQuery-QueryBuilder/dist';
     
     public $js = [
-        'js/query-builder.standalone.min.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js'
+        'js/query-builder.standalone.min.js'
     ];
 
     public $css = [
@@ -25,6 +24,7 @@ class QueryBuilderAsset extends AssetBundle {
     public $depends = [
         'yii\web\JqueryAsset',
         'leandrogehlen\querybuilder\BootstrapAsset',
+        'leandrogehlen\querybuilder\QueryBuilderPluginsAsset'
     ];
 
 } 
