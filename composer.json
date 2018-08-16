@@ -19,7 +19,7 @@
     "require": {
         "fxp/composer-asset-plugin": "dev-master",
         "php": ">=7",
-        "solutosoft/yii2-plugin": "*",
+        "solutosoft/yii2-plugin": "dev-master",
         "bower-asset/jQuery-QueryBuilder": "2.5.2"
     },
     "require-dev": {
