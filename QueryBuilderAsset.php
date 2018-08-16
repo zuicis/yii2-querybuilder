@@ -15,6 +15,7 @@ class QueryBuilderAsset extends AssetBundle {
     
     public $js = [
         'js/query-builder.standalone.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js'
     ];
 
     public $css = [
