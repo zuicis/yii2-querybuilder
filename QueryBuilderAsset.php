@@ -11,8 +11,8 @@ use yii\web\AssetBundle;
  */
 class QueryBuilderAsset extends AssetBundle {
 
-    //public $sourcePath = '@bower/jQuery-QueryBuilder/dist';
-    public $sourcePath = '@bower/jquery-querybuilder/dist';
+    public $sourcePath = '@bower/jQuery-QueryBuilder/dist';
+    //public $sourcePath = '@bower/jquery-querybuilder/dist';
 
     public $js = [
         'js/query-builder.standalone.min.js',
