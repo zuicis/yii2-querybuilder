@@ -98,9 +98,10 @@ class QueryBuilderForm extends Widget
      */
     public function init()
     {
+
         if (is_array($this->builder)) {
             $this->builder = Yii::createObject(array_merge([
-                    'class' => QueryBuilder::className()
+                    'class' => QueryBuilder::className(),
                 ], $this->builder)
             );
         }
@@ -112,6 +113,15 @@ class QueryBuilderForm extends Widget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
+
+
+        $this -> builder['pluginOptions']['icons'] =[
+            'add_group' => 'fal fa-plus-circle',
+            'add_rule' => 'fal fa-plus',
+            'remove_group' => 'fal fa-minus-circle',
+            'remove_rule' => 'fal fa-minus',
+            'error' => 'fal fa-exclamation-triangle'
+        ];
 
         echo $this->builder->run();
         echo Html::beginForm($this->action, $this->method, $this->options);
@@ -128,7 +138,6 @@ class QueryBuilderForm extends Widget
         $id = $this->options['id'];
         $builderId = $this->builder->getId();
         $view = $this->getView();
-
         if ($this->rules) {
             $rules = Json::encode($this->rules);
             $view->registerJs("$('#{$builderId}').queryBuilder('setRules', {$rules});");
