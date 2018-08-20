@@ -109,7 +109,7 @@ class QueryBuilderForm extends Widget
                 'error' => 'fal fa-exclamation-triangle'
             ];
             //lai tulkojums no db
-            $this -> builder['pluginOptions']['lang'] => [
+            $this -> builder['pluginOptions']['lang'] = [
                 "add_rule" => Yii::t("app","Add rule"),
                 "add_group" => Yii::t("app","Add group"),
                 "delete_rule" => Yii::t("app","Delete"),
