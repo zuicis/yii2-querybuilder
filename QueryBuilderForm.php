@@ -100,6 +100,76 @@ class QueryBuilderForm extends Widget
     {
 
         if (is_array($this->builder)) {
+            //lai fa 5x
+            $this -> builder['pluginOptions']['icons'] =[
+                'add_group' => 'fal fa-plus-circle',
+                'add_rule' => 'fal fa-plus',
+                'remove_group' => 'fal fa-minus-circle',
+                'remove_rule' => 'fal fa-minus',
+                'error' => 'fal fa-exclamation-triangle'
+            ];
+            //lai tulkojums no db
+            $this -> builder['pluginOptions']['lang'] => [
+                "add_rule" => Yii::t("app","Add rule"),
+                "add_group" => Yii::t("app","Add group"),
+                "delete_rule" => Yii::t("app","Delete"),
+                "delete_group" => Yii::t("app","Delete"),
+                "conditions" => [
+                    "AND" => Yii::t("app","AND"),
+                    "OR" => Yii::t("app","OR"),
+                ],
+                "operators" => [
+                    "equal" => Yii::t("app","equal"),
+                    "not_equal" => Yii::t("app","not equal"),
+                    "in" => Yii::t("app","in"),
+                    "not_in" => Yii::t("app","not in"),
+                    "less" => Yii::t("app","less"),
+                    "less_or_equal" => Yii::t("app","less or equal"),
+                    "greater" => Yii::t("app","greater"),
+                    "greater_or_equal" => Yii::t("app","greater or equal"),
+                    "between" => Yii::t("app","between"),
+                    "not_between" => Yii::t("app","not between"),
+                    "begins_with" => Yii::t("app","begins with"),
+                    "not_begins_with" => Yii::t("app","doesn't begin with"),
+                    "contains" => Yii::t("app","contains"),
+                    "not_contains" => Yii::t("app","doesn't contain"),
+                    "ends_with" => Yii::t("app","ends with"),
+                    "not_ends_with" => Yii::t("app","doesn't end with"),
+                    "is_empty" => Yii::t("app","is empty"),
+                    "is_not_empty" => Yii::t("app","is not empty"),
+                    "is_null" => Yii::t("app","is null"),
+                    "is_not_null" => Yii::t("app","is not null"),
+                ],
+                "errors" => [
+                    "no_filter" => Yii::t("app","No filter selected"),
+                    "empty_group" => Yii::t("app","The group is empty"),
+                    "radio_empty" => Yii::t("app","No value selected"),
+                    "checkbox_empty" => Yii::t("app","No value selected"),
+                    "select_empty" => Yii::t("app","No value selected"),
+                    "string_empty" => Yii::t("app","Empty value"),
+                    "string_exceed_min_length" => Yii::t("app","Must contain at least {0} characters"),
+                    "string_exceed_max_length" => Yii::t("app","Must not contain more than {0} characters"),
+                    "string_invalid_format" => Yii::t("app","Invalid format ({0})"),
+                    "number_nan" => Yii::t("app","Not a number"),
+                    "number_not_integer" => Yii::t("app","Not an integer"),
+                    "number_not_double" => Yii::t("app","Not a real number"),
+                    "number_exceed_min" => Yii::t("app","Must be greater than {0}"),
+                    "number_exceed_max" => Yii::t("app","Must be lower than {0}"),
+                    "number_wrong_step" => Yii::t("app","Must be a multiple of {0}"),
+                    "number_between_invalid" => Yii::t("app","Invalid values, {0} is greater than {1}"),
+                    "datetime_empty" => Yii::t("app","Empty value"),
+                    "datetime_invalid" => Yii::t("app","Invalid date format ({0})"),
+                    "datetime_exceed_min" => Yii::t("app","Must be after {0}"),
+                    "datetime_exceed_max" => Yii::t("app","Must be before {0}"),
+                    "datetime_between_invalid" => Yii::t("app","Invalid values, {0} is greater than {1}"),
+                    "boolean_not_valid" => Yii::t("app","Not a boolean"),
+                    "operator_not_multiple" => Yii::t("app","Operator \"{1}\" cannot accept multiple values"),
+                ],
+                "invert" => Yii::t("app","Invert"),
+                "NOT" => Yii::t("app","NOT"),
+            ];
+
+
             $this->builder = Yii::createObject(array_merge([
                     'class' => QueryBuilder::className(),
                 ], $this->builder)
@@ -113,15 +183,6 @@ class QueryBuilderForm extends Widget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-
-
-        $this -> builder['pluginOptions']['icons'] =[
-            'add_group' => 'fal fa-plus-circle',
-            'add_rule' => 'fal fa-plus',
-            'remove_group' => 'fal fa-minus-circle',
-            'remove_rule' => 'fal fa-minus',
-            'error' => 'fal fa-exclamation-triangle'
-        ];
 
         echo $this->builder->run();
         echo Html::beginForm($this->action, $this->method, $this->options);
