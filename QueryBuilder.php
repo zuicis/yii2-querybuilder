@@ -9,7 +9,6 @@ namespace leandrogehlen\querybuilder;
  * @author Leandro Gehlen <leandrogehlen@gmail.com>
  */
 class QueryBuilder extends \soluto\plugin\Widget {
-
     /**
      * @inheridoc
      */
